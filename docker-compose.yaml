@@ -22,7 +22,7 @@ services:
       - mysql
     networks:
       app_v1_network:
-        ipv4_address: 172.2.0.1
+        ipv4_address: 172.2.0.11
 
   mysql:
     image: 'library/mysql:8.0.26'
@@ -39,7 +39,7 @@ services:
       MYSQL_ROOT_PASSWORD: secret
     networks:
       app_v1_network:
-        ipv4_address: 172.2.0.2
+        ipv4_address: 172.2.0.12
 
   php:
     build:
@@ -56,7 +56,7 @@ services:
       - './dockerfiles/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini'
     networks:
       app_v1_network:
-        ipv4_address: 172.2.0.3
+        ipv4_address: 172.2.0.13
 
   npm:
     image: node:16.13
@@ -76,7 +76,7 @@ services:
     entrypoint: ['npm']
     networks:
       app_v1_network:
-        ipv4_address: 172.2.0.4
+        ipv4_address: 172.2.0.14
 
   composer:
     build:
@@ -96,7 +96,7 @@ services:
       - '--ignore-platform-reqs'
     networks:
       app_v1_network:
-        ipv4_address: 172.2.0.5
+        ipv4_address: 172.2.0.15
 
   artisan:
     build:
@@ -114,4 +114,4 @@ services:
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
       app_v1_network:
-        ipv4_address: 172.2.0.6
+        ipv4_address: 172.2.0.16
